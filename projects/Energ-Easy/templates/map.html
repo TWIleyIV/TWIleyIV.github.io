@@ -164,7 +164,8 @@
                         <script>
                         var prevDate = new Date();
                         $(function() {
-                            $( "#datepicker" ).datepicker('setDate', new Date());
+							var pastDate = new Date(2015, 11, 1);
+                            $( "#datepicker" ).datepicker('setDate', pastDate);
                             date = new Date();
                             calDate = ((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
 
