@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Summit - Free Bootstrap 3 Theme">
+    <meta name="author" content="Alvarez.is - BlackTie.co">
+    <link rel="shortcut icon" href="../static/ico/favicon.png">
+
+    <title>Summit - Energy Prediction Software</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="../static/css/custom.css" rel="stylesheet">
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/smoothscroll.js"></script>
+    <script src="../static/js/usagemap.js"></script>
+    <script src="../static/js/heatmap.js"></script>
+    <script src="../static/js/listings.js"></script> 
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js">
+    </script>
+
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navigation">
+    <!-- Fixed navbar -->
+	    <div id="navigation" class="navbar navbar-default navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="index.html"><b>Summit</b></a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="map.html" class="smoothscroll">Map</a></li>
+	            <li><a href="chart.html" class="smoothscroll">Chart</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </div>
+
+
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+	    <div class="container">
+	    	<div class="row centered">
+	    		<div class="col-lg-12">
+					<h1><b>Map</b></h1>
+					<h3>Heatmap / Property Listings</h3>
+					<br>
+	    		</div>
+	    		
+	    		 <div class="map_container"> 
+                    <style>
+                    #info-box {
+                        background-color: white;
+                        border: 1px solid black;
+                        bottom: 30px;
+                        height: 20px;
+                        padding: 20px;
+                        position: absolute;
+                        left: 30px;
+                    }
+                    </style>
+                    <div id="gmap" class="gmap"></div>
+                    <!-- <div id="info-box">?</div> --->
+                    <div id="controls" class="nicebox">
+                        <div id="legend">
+                            <div id="census-min">MIN</div>
+                            <div class="color-key">
+                                <span id="data-caret" style="display: none;">◆</span>
+                            </div>
+                            <div id="census-max">MAX</div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        var heatGroup = "county";
+                        var countyData = [];
+                        var regionData = [];
+                        var currentDrill = "county";
+                        var gmap;
+                        var lines;
+                        var minVal;
+                        var maxVal;
+                        var minRegVal;
+                        var maxRegVal;
+                        var minStateVal;
+                        var maxStateVal;
+                        var first = 'true';
+                        var docMaxReg;
+                        var firstCheck = false;
+                        var secondCheck = false;
+                        var maxDateText = "+8D";
+                        var futureDate = new Date();
+                        futureDate.setDate(futureDate.getDate() + 8);
+                        var futureCal = (futureDate.getMonth() + 1) + '/' + futureDate.getDate() + '/' + futureDate.getFullYear();
+                        var date = new Date();
+                        var calDate = ((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
+                        infoWindow = new google.maps.InfoWindow({
+                            content: ""
+                        });
+                        gmap = new google.maps.Map(document.getElementById('gmap'), {
+                            center: {lat: 32, lng: -100},
+                            zoom: 6,
+                            minZoom: 5
+                        });
+                        var strictBounds = new google.maps.LatLngBounds(
+                            new google.maps.LatLng(50, -130),
+                            new google.maps.LatLng(10, -70)
+                        );
+                        var heatmapLayer = new google.maps.Data();
+                        var outlineLayer = new google.maps.Data();
+                        var infoListener = gmap.data.addListener('click', function() {});
+                        outlineLayer.addListener('mouseover', mouseInToRegion);
+                        outlineLayer.addListener('mouseout', mouseOutOfRegion);
+                        var infoBox = gmap.data.addListener('mouseover', function(event) {
+                            document.getElementById('info-box').textContent = event.feature.getProperty('COUNTY');
+                        });
+                        getMinMax();
+                        getRegionData();
+                        getListing();
+                        </script>
+	    		    </div>
+                </div>
+                    <!-- Calendar -->
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+                      rel="stylesheet">
+                    <br>
+                    <script type=text/javascript>
+                      $(function() {
+                        $('a#calculate').bind('click', function() {
+                          $.getJSON('/_add_numbers', {
+                            day: $('input[name="day"]').val(),
+                            drill: $('input[name="drill"]').val()
+                          }, function(data) {
+                        $("#result").text(data.result);
+                        });
+                        return false;
+                       });
+                     });
+                   </script>
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+                        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+                        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+                        <link rel="stylesheet" href="../resources/demos/style.css">
+                        <!-- Make sure our calendar stays on top of other elements -->
+                        <style>
+                          #ui-datepicker-div { z-index: 2 !important;}
+                        </style>
+                        <script>
+                        var prevDate = new Date();
+                        $(function() {
+                            $( "#datepicker" ).datepicker('setDate', new Date());
+                            date = new Date();
+                            calDate = ((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
+
+                            if(firstCheck && secondCheck) {
+                                maxDateText = "+9D";
+                            }
+
+                            $( "#datepicker" ).val("12/1/2015"); 
+                            $( "#datepicker" ).datepicker({ 
+                                maxDate: new Date(2016, 4, 10),
+                                minDate: new Date(2015, 11, 1), 
+                                setDate: new Date(2015, 11, 1),
+                                onClose: function(dateText, instance) {
+                                    prevDate = date;
+                                    date = $(this).datepicker('getDate');
+                                    if(date && +prevDate != +date) {
+                                        calDate = ((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
+                                        insertColorLayer();
+                                        if(currentDrill == 'county') {
+                                            showCounty();
+                                        } else if(currentDrill == 'region') {
+                                            showRegion();
+                                        } else if(currentDrill == 'state') {
+                                            showState();
+                                        } else {
+                                            console.log('uh oh');
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                        </script>
+                    <!-- </div> -->
+                    <input type="text" name="day" class="form-control" id="datepicker" placeholder="Date">
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active dataButton" onclick="pushData(this); showCounty();" >
+                            <input type="radio" id="q156" name="quality[25]" value="1" checked="" /> County
+                        </label> 
+                        <label class="btn btn-default dataButton" onclick="pushData(this); showRegion();" >
+                            <input type="radio" id="q157" name="quality[25]" value="2" /> Region
+                        </label> 
+                        <label class="btn btn-default dataButton" onclick="pushData(this); showState();" >
+                            <input type="radio" id="q158" name="quality[25]" value="3" /> State
+                        </label> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active heatButton" onclick="pushHeat(this); setHeatCounty();"  >
+                            <input type="radio" id="q161" name="quality[25]" value="1" checked="" /> Heat By County
+                        </label>
+                        <label class="btn btn-default heatButton" onclick="pushHeat(this); setHeatRegion();" >
+                            <input type="radio" id="q162" name="quality[25]" value="2"/> Heat By Region
+                        </label>
+                        <label class="btn btn-default heatButton" onclick="pushHeat(this); setHeatState();" >
+                            <input type="radio" id="q163" name="quality[25]" value="3"/> Heat By State
+                        </label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active" onclick="removeListings()" >
+                            <input type="radio" id="q159" name="quality[25]" value="1" checked="" /> Remove Listings
+                        </label>
+                        <label class="btn btn-default" onclick="showListings()" >
+                            <input type="radio" id="q160" name="quality[25]" value="2" /> Show Listings
+                        </label>
+                        </div>
+                        <br><br>
+                        <div class="btn-group" data-toggle="buttons" id="ShowOptions" style="display: none;">
+                            <label class="btn btn-default active" id="AllBtn" onclick="showListings()" >
+                                <input type="radio" id="q161" name="quality[25]" value="1"  /> All
+                            </label>
+                            <label class="btn btn-default" id="SaleBtn" onclick="showSaleListings()" >
+                                <input type="radio" id="q162" name="quality[25]" value="2" /> Sale
+                            </label>
+                            <label class="btn btn-default" id="LeaseBtn" onclick="showLeaseListings()" >
+                                <input type="radio" id="q163" name="quality[25]" value="3" /> Lease
+                            </label>
+                        </div>
+                    </div>
+                    <br><br>
+                    </div>
+                <!-- </form> -->
+                <br>
+                <br>
+	    	</div>
+	    </div> <!--/ .container -->
+	</div><!--/ #headerwrap -->
+
+
+	<!-- <section id="desc" name="desc"></section> -->
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/bootstrap.js"></script>
+	<script>
+	$('.carousel').carousel({
+	  interval: 3500
+	})
+	</script>
+  </body>
+</html>

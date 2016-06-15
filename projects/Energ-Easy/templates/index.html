@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Summit - Free Bootstrap 3 Theme">
+    <meta name="author" content="Alvarez.is - BlackTie.co">
+    <link rel="shortcut icon" href="../static/ico/favicon.png">
+
+    <title>Summit - Energy Prediction Software</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/main.css" rel="stylesheet">
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/smoothscroll.js"></script>
+    
+    <script
+      src="https://maps.googleapis.com/maps/api/js">
+    </script>
+
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navigation">
+
+    <!-- Fixed navbar -->
+	    <div id="navigation" class="navbar navbar-default navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#"><b>Summit</b></a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+                <li><a href="map.html" class="smoothscroll">Map</a></li>
+                <li><a href="chart.html" class="smoothscroll">Chart</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </div>
+
+
+	<section id="home" name="home"></section>
+	<div id="headerwrap2">
+                <div class="col-xs-12" style="height:50px;"></div>
+	    		<div class="row centered">
+					<h1 style="color:white;">Welcome To <b>Summit</b></h1>
+					<br>
+	    		</div>
+                <div class="col-xs-12" style="height:500px;"></div>
+	</div><!--/ #headerwrap -->
+
+
+	<section id="desc" name="desc"></section>
+	<!-- INTRO WRAP -->
+	<div id="intro">
+		<div class="container">
+			<div class="row centered">
+				<h1>Link to the project</h1>
+				<br>
+				<br>
+				
+				<div class="col-lg-6">
+					<a href="chart.html">
+                    <img src="../static/img/chart_icon.png" alt="">
+					<h3>Chart</h3>
+                    </a>
+				</div>
+				<div class="col-lg-6">
+					<a href="map.html">
+                    <img src="../static/img/map_icon.png" alt="">
+					<h3>Map</h3>
+                    </a>
+				</div>
+
+			</div>
+			<br>
+			<hr>
+	    </div> <!--/ .container -->
+	</div><!--/ #introwrap -->
+	
+	<!-- FEATURES WRAP -->
+    
+	<div id="features">
+		<div class="container">
+			<div class="row">
+				<h1 class="centered">What does it do?</h1>
+				<br>
+				<br>
+				<div class="col-lg-6 centered">
+					<img class="centered" src="../static/img/power-line-connected-towers.png" alt="">
+                </div>
+				
+				<div class="col-lg-6">
+					<h3>Some Features</h3>
+					<br>
+				<!-- ACCORDION -->
+                    <div class="accordion ac" id="accordion2">
+		                <div class="accordion-group">
+		                    <div class="accordion-heading">
+		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+		                        Accurate Energy Predictions
+		                        </a>
+		                    </div><!-- /accordion-heading -->
+		                    <div id="collapseOne" class="accordion-body collapse in">
+		                        <div class="accordion-inner">
+								<p>The graph uses hourly weather data from ERCOT and other data sources to produce an accurate model within the industry standard of 3%.</p>
+								</div><!-- /accordion-inner -->
+		                    </div><!-- /collapse -->
+		                </div><!-- /accordion-group -->
+		                <br>
+		
+		                <div class="accordion-group">
+		                    <div class="accordion-heading">
+		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		                        Representations of Historical Data
+		                        </a>
+		                    </div>
+		                    <div id="collapseTwo" class="accordion-body collapse">
+		                        <div class="accordion-inner">
+								<p>The model is tested using actual demands from past recordings up to the present. The graph displays comparisons of predictions and actuals for the selected time period.</p>
+								</div><!-- /accordion-inner -->
+		                    </div><!-- /collapse -->
+		                </div><!-- /accordion-group -->
+		                <br>
+		
+		                 <div class="accordion-group">
+		                    <div class="accordion-heading">
+		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+		                        Interactive Map
+		                        </a>
+		                    </div>
+		                    <div id="collapseThree" class="accordion-body collapse">
+		                        <div class="accordion-inner">
+								<p>The map is drillable, includes overlay capabilities, and allows for the user to see detailed information at any given point in the graph when clicked on.</p>
+								</div><!-- /accordion-inner -->
+		                    </div><!-- /collapse -->
+		                </div><!-- /accordion-group -->
+		                <br>
+		                
+		                 <div class="accordion-group">
+		                    <div class="accordion-heading">
+		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+		                        Information Down to the County Level
+		                        </a>
+		                    </div>
+		                    <div id="collapseFour" class="accordion-body collapse">
+		                        <div class="accordion-inner">
+								<p>The map has intuitive colors and is drillable to a state, region, and county level. Clicking on an area provides summary information about it.</p>
+								</div><!-- /accordion-inner -->
+		                    </div><!-- /collapse -->
+		                </div><!-- /accordion-group -->
+						<div class="accordion-group">
+		                    <div class="accordion-heading">
+		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+		                        Data Not Continued
+		                        </a>
+		                    </div>
+		                    <div id="collapseFour" class="accordion-body collapse">
+		                        <div class="accordion-inner">
+								<p>The energy prediction of this software has not been continued for further use. The values you will see are from the period of November 2015 to March 2016.</p>
+								</div><!-- /accordion-inner -->
+		                    </div><!-- /collapse -->
+		                </div><!-- /accordion-group -->
+		                <br>			
+					</div><!-- Accordion -->
+				</div>
+			</div>
+		</div><!--/ .container -->
+	</div><!--/ #features -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/bootstrap.js"></script>
+	<script>
+	$('.carousel').carousel({
+	  interval: 3500
+	})
+	</script>
+  </body>
+</html>

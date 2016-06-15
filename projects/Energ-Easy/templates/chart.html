@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Summit - Free Bootstrap 3 Theme">
+    <meta name="author" content="Alvarez.is - BlackTie.co">
+    <link rel="shortcut icon" href="static/ico/favicon.png">
+
+    <title>Summit - Energy Prediction Software</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/smoothscroll.js"></script>
+    <script src="../static/js/linechart.js"></script>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navigation">
+
+    <!-- Fixed navbar -->
+    <div id="navigation" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><b>Summit</b></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="map.html" class="smoothscroll">Map</a></li>
+            <li class="active"><a href="chart.html" class="smoothscroll">Chart</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <section id="home" name="home"></section>
+	<div id="headerwrap">
+	    <div class="container">
+	    	<div class="row centered">
+	    		<div class="col-lg-12">
+					<h1><b>Chart</b></h1>
+					<h3></h3>
+					<br>
+	    		</div>
+
+
+	    		<!--div class="col-lg-2">
+                    <h5>Amazing Results</h5>
+	    			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	    			<img class="hidden-xs hidden-sm hidden-md" src="static/img/arrow1.png">
+	    		    >
+                </div-->
+                <div class="chart_container">
+                    <div id="chartView" class="chartView"></div>
+
+                    <style>
+                    #info-box {
+                        background-color: white;
+                        bottom: 0px;
+                        padding: 6px;
+                        position: absolute;
+                        left: 0px;
+                        font-size: 100%;
+                    }
+                    </style>
+                    <div id="info-box"></div>
+
+
+
+                    <script type="text/javascript">
+                        google.charts.load('current', {'packages':['line', 'corechart']});
+                        google.charts.setOnLoadCallback(loadPage);
+                        //var chartDiv = document.getElementById('chartView');
+                    </script>
+                </div>
+            </div>
+                    <!-- Calendar -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+                      rel="stylesheet">
+            <br>
+            <script type=text/javascript>
+                $(function() {
+                    $('a#calculate').bind('click', function() {
+                        $.getJSON('/_add_numbers', {
+                            day: $('input[name="day"]').val(),
+                            drill: $('input[name="drill"]').val()
+                        }, function(data) {
+                            $("#result").text(data.result);
+                        });
+                        return false;
+                    });
+                });
+            </script>
+
+            <div class="form-group">
+                <table align="left" style="width:50%;  border: none; border-collapse: collapse;">
+                    <tr style="color:white">
+                        <th style="border-right: 100px">Minimum Date:</th>
+                        <th>Maximum Date:</th>
+                    </tr>
+                    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+                    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+                    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+                    <link rel="stylesheet" href="../resources/demos/style.css">
+                    <!-- Make sure our calendar stays on top of other elements -->
+                    <tr>
+                        <style>
+                            #ui-datepicker-div { z-index: 2 !important;}
+                        </style>
+                        <script>
+                            min_date = new Date(2015, 11, 1);
+                            $(function() {
+                                $( "#minDatepicker" ).datepicker('setDate', new Date());
+
+                                $( "#minDatepicker" ).datepicker({
+                                    maxDate: new Date(2016, 4, 10),
+                                    minDate: new Date(2015, 11, 1),
+                                    setDate: new Date(2015, 11, 1),
+                                    onSelect: function(dateText, instance) {
+                                        min_date = $(this).datepicker('getDate');
+                                    }
+                                });
+                            });
+
+                        </script>
+                        <td style="border-right: 100px"><input type="text" name="day" class="form-control " id="minDatepicker" placeholder=""></td>
+
+
+
+                        <style>
+                            #ui-datepicker-div { z-index: 2 !important;}
+                        </style>
+                        <script>
+                            $(function() {
+                                $( "#maxDatepicker" ).datepicker('setDate', new Date());
+                                max_date = new Date();
+                                $( "#maxDatepicker" ).datepicker({
+                                    maxDate: new Date(2016, 4, 10),
+                                    minDate: new Date(2015, 11, 1),
+                                    setDate: new Date(2016, 4, 10),
+                                    onSelect: function(dateText, instance) {
+                                        max_date = $(this).datepicker('getDate');
+                                    }
+                                });
+                            });
+                        </script>
+                        <td><input type="text" name="day" class="form-control" id="maxDatepicker" placeholder=""></td>
+                    </tr>
+                </table>
+
+                <br><br><br><br>
+
+
+                <label class="btn btn-default" id="rangeSubmitBtn"
+                       onclick="changeDateRange()" onmouseover="displayErrMsg()"
+                       onmouseout="removeErrMsg()">Submit Range</label>
+                <h id="errMsg"  style="color:#ae0017; display: none;">
+                    <b>Error: First date must be less than or equal to last date</b>
+                </h>
+
+            </div>
+
+            <br><br>
+
+	    </div> <!--/ .container -->
+	</div><!--/ #headerwrap -->
+
+
+	<section id="desc" name="desc"></section>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery.csv.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+	<script>
+        $('.carousel').carousel({
+            interval: 3500
+        })
+	</script>
+  </body>
+</html>

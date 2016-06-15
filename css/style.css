@@ -24,6 +24,7 @@
 /* ==========================================================================
 	Global Styles
 ========================================================================== */
+
 /* centered columns styles */
 .row-centered {
     text-align:center;
@@ -35,6 +36,17 @@
     text-align:left;
     /* inline-block space fix */
     margin-right:-4px;
+}
+@media only screen and (max-device-width: 480px) {
+	.col-centered {
+		display:inline;
+		float:none;
+		/* reset the text-align */
+		text-align:left;
+		/* inline-block space fix */
+		margin-right:-4px;
+		
+	}
 }
 a {
 	color: #E04343;
@@ -472,7 +484,7 @@ table {
 	background-color: #FBFBFB;
 }
 .hero h1 {
-	font-size: 120px;
+	font-size: 7.5em;
 	letter-spacing: -8px;
 	margin: 0;
 	font-weight: 600;
