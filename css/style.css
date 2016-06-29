@@ -491,6 +491,16 @@ table {
  	line-height: 95px;
  	text-transform: uppercase;
 }
+@media only screen and (max-device-width: 480px) {
+	.hero h1 {
+		font-size: 7em;
+  		letter-spacing: -8px;
+  		margin: 0;
+  		font-weight: 600;
+ 		line-height: 95px;
+ 		text-transform: uppercase;
+	}
+}
 .hero h1 span {
 	color:#a1a9b0;
 	/* display:inline-block; */
