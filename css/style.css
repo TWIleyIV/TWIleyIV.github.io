@@ -485,10 +485,10 @@ table {
 }
 .hero h1 {
 	font-size: 7.5em;
-  	letter-spacing: 0px;
+  	letter-spacing: -8px;
   	margin: 0;
   	font-weight: 600;
- 	line-height: 95px;
+ 	line-height: 5.938em;
  	text-transform: uppercase;
 }
 .hero h1 span {
